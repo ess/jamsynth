@@ -1,0 +1,55 @@
+{
+  "name": "Default 808 Sub",
+  "voice_mode": "MonoLegato",
+  "glide_ms": 45.0,
+  "osc1": {
+    "enabled": true,
+    "wave": "Sine",
+    "octave": -1,
+    "semitone": 0,
+    "fine_cents": 0.0,
+    "gain": 1.0,
+    "sub_osc_gain": 0.0
+  },
+  "osc2": {
+    "enabled": false,
+    "wave": "Saw",
+    "octave": 0,
+    "semitone": 0,
+    "fine_cents": 7.0,
+    "gain": 0.3,
+    "sub_osc_gain": 0.0
+  },
+  "pitch_env": {
+    "enabled": true,
+    "start_semitones": 24.0,
+    "decay_ms": 38.0
+  },
+  "amp_env": {
+    "attack_ms": 1.0,
+    "decay_ms": 1400.0,
+    "sustain": 0.0,
+    "release_ms": 100.0
+  },
+  "filter": {
+    "enabled": true,
+    "filter_type": "LowPass24",
+    "cutoff_hz": 350.0,
+    "resonance": 0.2,
+    "key_tracking": 0.5
+  },
+  "filter_env": {
+    "enabled": false,
+    "attack_ms": 10.0,
+    "decay_ms": 300.0,
+    "sustain": 0.0,
+    "release_ms": 100.0,
+    "amount_octaves": 2.0
+  },
+  "drive": {
+    "enabled": true,
+    "drive_type": "SoftSaturation",
+    "amount": 0.35
+  },
+  "master_gain": 0.9
+}

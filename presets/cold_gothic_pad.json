@@ -1,0 +1,59 @@
+{
+  "name": "Cold Gothic Pad",
+  "voice_mode": {
+    "Polyphonic": {
+      "max_voices": 8
+    }
+  },
+  "glide_ms": 0.0,
+  "osc1": {
+    "enabled": true,
+    "wave": "Saw",
+    "octave": 0,
+    "semitone": 0,
+    "fine_cents": -5.0,
+    "gain": 0.5,
+    "sub_osc_gain": 0.0
+  },
+  "osc2": {
+    "enabled": true,
+    "wave": "Saw",
+    "octave": 0,
+    "semitone": 7,
+    "fine_cents": 5.0,
+    "gain": 0.4,
+    "sub_osc_gain": 0.0
+  },
+  "pitch_env": {
+    "enabled": false,
+    "start_semitones": 0.0,
+    "decay_ms": 0.0
+  },
+  "amp_env": {
+    "attack_ms": 350.0,
+    "decay_ms": 3000.0,
+    "sustain": 0.7,
+    "release_ms": 1200.0
+  },
+  "filter": {
+    "enabled": true,
+    "filter_type": "LowPass24",
+    "cutoff_hz": 1200.0,
+    "resonance": 0.15,
+    "key_tracking": 0.8
+  },
+  "filter_env": {
+    "enabled": true,
+    "attack_ms": 500.0,
+    "decay_ms": 2500.0,
+    "sustain": 0.3,
+    "release_ms": 1000.0,
+    "amount_octaves": 1.5
+  },
+  "drive": {
+    "enabled": true,
+    "drive_type": "TapeWarmth",
+    "amount": 0.15
+  },
+  "master_gain": 0.8
+}
