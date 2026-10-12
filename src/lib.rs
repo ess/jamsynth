@@ -16,6 +16,27 @@ pub struct JamSynthParams {
 
     #[id = "cutoff"]
     pub cutoff: FloatParam,
+
+    #[id = "resonance"]
+    pub resonance: FloatParam,
+
+    #[id = "glide"]
+    pub glide: FloatParam,
+
+    #[id = "drive"]
+    pub drive: FloatParam,
+
+    #[id = "attack"]
+    pub attack: FloatParam,
+
+    #[id = "decay"]
+    pub decay: FloatParam,
+
+    #[id = "sustain"]
+    pub sustain: FloatParam,
+
+    #[id = "release"]
+    pub release: FloatParam,
 }
 
 impl Default for JamSynthParams {
@@ -27,13 +48,48 @@ impl Default for JamSynthParams {
                 FloatRange::Linear { min: 0.0, max: 1.0 },
             ),
             cutoff: FloatParam::new(
-                "Filter Cutoff",
+                "Cutoff",
                 350.0,
                 FloatRange::Skewed {
                     min: 20.0,
                     max: 20000.0,
                     factor: FloatRange::skew_factor(-2.0),
                 },
+            ),
+            resonance: FloatParam::new(
+                "Resonance",
+                0.2,
+                FloatRange::Linear { min: 0.0, max: 1.0 },
+            ),
+            glide: FloatParam::new(
+                "Glide",
+                45.0,
+                FloatRange::Linear { min: 0.0, max: 1000.0 },
+            ),
+            drive: FloatParam::new(
+                "Drive",
+                0.35,
+                FloatRange::Linear { min: 0.0, max: 1.0 },
+            ),
+            attack: FloatParam::new(
+                "Attack",
+                1.0,
+                FloatRange::Linear { min: 0.1, max: 5000.0 },
+            ),
+            decay: FloatParam::new(
+                "Decay",
+                1400.0,
+                FloatRange::Linear { min: 1.0, max: 5000.0 },
+            ),
+            sustain: FloatParam::new(
+                "Sustain",
+                0.0,
+                FloatRange::Linear { min: 0.0, max: 1.0 },
+            ),
+            release: FloatParam::new(
+                "Release",
+                100.0,
+                FloatRange::Linear { min: 1.0, max: 5000.0 },
             ),
         }
     }
@@ -98,6 +154,14 @@ impl Plugin for JamSynth {
     ) -> ProcessStatus {
         // Sync parameters
         self.engine.patch.master_gain = self.params.master_gain.value();
+        self.engine.patch.filter.cutoff_hz = self.params.cutoff.value();
+        self.engine.patch.filter.resonance = self.params.resonance.value();
+        self.engine.patch.glide_ms = self.params.glide.value();
+        self.engine.patch.drive.amount = self.params.drive.value();
+        self.engine.patch.amp_env.attack_ms = self.params.attack.value();
+        self.engine.patch.amp_env.decay_ms = self.params.decay.value();
+        self.engine.patch.amp_env.sustain = self.params.sustain.value();
+        self.engine.patch.amp_env.release_ms = self.params.release.value();
 
         // Process incoming MIDI events
         while let Some(event) = context.next_event() {
